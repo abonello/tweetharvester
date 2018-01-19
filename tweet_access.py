@@ -1,4 +1,5 @@
 import json
+import tweepy
 from keys_and_secrets import get_auth, twitter_api
 
 # Twitter API authentication keys
@@ -13,3 +14,4 @@ results = [status for status in tweepy.Cursor(api.search, q=query).items(count)]
 
 for result in results:
     print result
+    print "\n"
