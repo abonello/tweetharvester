@@ -10,8 +10,16 @@ count = 10
 query = 'Dublin'
 
 # Get all status
+# list comprehension using the api.search object based on the query value
 results = [status for status in tweepy.Cursor(api.search, q=query).items(count)]
 
 for result in results:
     print result
-    print "\n"
+    print
+
+print "\n\n ORGANISED \n"
+
+for result in results:
+    print json.dumps(result._json, indent=2)
+
+
