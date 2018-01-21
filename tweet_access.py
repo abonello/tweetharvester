@@ -1,6 +1,7 @@
 import json
 import tweepy
 from keys_and_secrets import get_auth, twitter_api
+from collection import Counter
 
 # Twitter API authentication keys
 api = twitter_api()
@@ -23,6 +24,26 @@ print "\n\n ORGANISED \n"
 #     print json.dumps(result._json, indent=2)
 
 print json.dumps(results[0]._json, indent=4)
+
+status_texts = [status._json['text'] for status in results]
+
+screen_names = [status._json['user']['screen_name']
+                for status in results
+                for mention in status._json['entities']['user_mentions']]
+
+hashtags = [hashtag['text']
+            for status in results
+            for hashtag in status._json['entities']['hashtags']]
+
+words = [word
+         for text in status_texts
+         for word in text.split()]
+
+print json.dumps(status_texts[0:5], indent=1)
+print json.dumps(screen_names[0:5], indent=1)
+print json.dumps(hashtags[0:5], indent=1)
+print json.dumps(words[0:5], indent=1)
+
 
 print "\n\n ***** SELECTED DATA *****"
 
