@@ -1,14 +1,17 @@
 import json
 import tweepy
 from keys_and_secrets import get_auth, twitter_api
-from collection import Counter
+from collections import Counter
 
 # Twitter API authentication keys
 api = twitter_api()
 auth = get_auth()
 
-count = 10
-query = 'Dublin'
+#count = 10
+#query = 'Dublin'
+count = 50
+#query = 'Weather'
+query = 'Brexit'
 
 # Get all status
 # list comprehension using the api.search object based on the query value
@@ -39,6 +42,9 @@ words = [word
          for text in status_texts
          for word in text.split()]
 
+
+
+
 print json.dumps(status_texts[0:5], indent=1)
 print json.dumps(screen_names[0:5], indent=1)
 print json.dumps(hashtags[0:5], indent=1)
@@ -56,5 +62,10 @@ for status in results:
     print status.place
     print
 
+print "\n\n ***** *****"
+for entry in [screen_names, hashtags, words]:
+    counter = Counter(entry)
+    print counter.most_common()[:10] # the top 10 results
+    print
 
 
