@@ -2,6 +2,7 @@ import json
 import tweepy
 from keys_and_secrets import get_auth, twitter_api
 from collections import Counter
+from prettytable import PrettyTable
 
 # Twitter API authentication keys
 api = twitter_api()
