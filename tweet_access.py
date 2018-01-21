@@ -69,4 +69,14 @@ for entry in [screen_names, hashtags, words]:
     print counter.most_common()[:10] # the top 10 results
     print
 
-
+# The following code will print the data in a table format
+print " \n\nUsing PrettyTable to prettify the output using a table format"
+print " *************************************************************\n"
+for label, data in (('Text', status_texts),
+                    ('Screen Name', screen_names),
+                    ('Word', words)):
+    table = PrettyTable(field_names=[label, 'Count'])
+    counter = Counter(data)
+    [ table.add_row(entry) for entry in counter.most_common()[:10] ]
+    table.align[label], table.align['Count'] = 'l', 'r' # align the columns
+    print table
