@@ -14,6 +14,7 @@ count = 50
 #query = 'Weather'
 query = 'Brexit'
 
+
 # Get all status
 # list comprehension using the api.search object based on the query value
 results = [status for status in tweepy.Cursor(api.search, q=query).items(count)]
