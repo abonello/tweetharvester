@@ -1,4 +1,3 @@
-#!/usr/bin/env python2.7
 import json
 import tweepy
 from keys_and_secrets import get_auth, twitter_api
