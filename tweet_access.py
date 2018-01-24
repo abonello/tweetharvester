@@ -1,4 +1,4 @@
-#!/usr/bin/env python2
+#!/usr/bin/env python2.7
 import json
 import tweepy
 from keys_and_secrets import get_auth, twitter_api
@@ -24,7 +24,7 @@ results = [status for status in tweepy.Cursor(api.search, q=query).items(count)]
 #     print result
 #     print
 
-print "\n\n ORGANISED \n"
+print "\n\n ORGANISED as JSON\n"
 
 # for result in results:
 #     print json.dumps(result._json, indent=2)
