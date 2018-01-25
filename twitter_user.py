@@ -1,4 +1,5 @@
 import json
+import tweepy
 from keys_and_secrets import get_auth, twitter_api
 
 # Twitter API authentication keys
@@ -23,3 +24,10 @@ for friend in user.friends():
     print friend.screen_name
     print friend.followers_count
 
+'''
+We can easily harvest tweets that appear on a user's timeline by invoking the api.home_timeline method.
+'''
+
+for status in tweepy.Cursor(api.home_timeline).items(10):
+    # Process a tweet
+    print status.text.encode('utf-8')
