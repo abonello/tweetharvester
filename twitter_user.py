@@ -23,5 +23,3 @@ for friend in user.friends():
     print friend.screen_name
     print friend.followers_count
 
-print "\n\n" + user.
-
